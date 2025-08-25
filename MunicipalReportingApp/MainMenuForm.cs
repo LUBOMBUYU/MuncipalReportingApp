@@ -35,8 +35,7 @@ namespace MunicipalReportingApp
 
             // Open ReportIssues
             // Pass the list to the ReportIssues form so it can add new issues.
-            // You will need to modify the ReportIssues form to accept this list.
-            using (var reportForm = new ReportIssues())
+            using (var reportForm = new ReportIssues(issuesList))
             {
                 reportForm.ShowDialog();
             }
@@ -47,7 +46,7 @@ namespace MunicipalReportingApp
 
         private void btnViewIssues_Click(object sender, EventArgs e)
         {
-            if (issuesList == null || issuesList.Count == 0) // Check issuesList
+            if (issuesList.Count == 0) // Check issuesList
             {
                 MessageBox.Show("No issues submitted yet.");
                 return;
@@ -89,12 +88,12 @@ namespace MunicipalReportingApp
 
         private void btnLocalEvents_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Local Events clicked!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Local Events will be active in next Update!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnServiceRequestStatus_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Service Request Status clicked!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Service Request will be active in next Update!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
