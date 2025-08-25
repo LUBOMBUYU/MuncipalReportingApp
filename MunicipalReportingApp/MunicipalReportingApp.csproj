@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataStructures\AttachmentList.cs" />
+    <Compile Include="DataStructures\Issue.cs" />
     <Compile Include="DataStructures\IssueLinkedList.cs" />
     <Compile Include="DataStructures\IssueNode.cs" />
     <Compile Include="IssueStorage.cs" />

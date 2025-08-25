@@ -1,36 +1,31 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections;
-using System.Collections.Generic; // Ensure this is included
+using System.Collections.Generic;
 
 namespace MunicipalReportingApp.DataStructures
 {
     public class IssueNode
     {
-        public ReportedIssue Issue { get; set; }
-        public IssueNode NextNode { get; set; } // Renamed to avoid ambiguity
+        public Issue Issue { get; set; }
+        public IssueNode NextNode { get; set; }
 
-        public IssueNode(ReportedIssue issue)
+        public IssueNode(Issue issue)
         {
             Issue = issue;
             NextNode = null;
         }
     }
 
-    public class IssueLinkedList : IEnumerable<ReportedIssue>
+    public class IssueLinkedList : IEnumerable<Issue>
     {
         private IssueNode head;
-        private int count; // Track the number of issues
+        private int count;
 
-        public int Count => count; // Property to get the count
+        public int Count => count;
 
-        public void AddIssue(string description, string category)
+        public void Add(Issue issue)
         {
-            var newIssue = new ReportedIssue
-            {
-                Description = description,
-                Category = category
-            };
-            var newNode = new IssueNode(newIssue);
+            var newNode = new IssueNode(issue);
 
             if (head == null)
             {
@@ -45,10 +40,10 @@ namespace MunicipalReportingApp.DataStructures
                 }
                 current.NextNode = newNode;
             }
-            count++; // Increment count when a new issue is added
+            count++;
         }
 
-        public ReportedIssue SearchIssue(string description)
+        public Issue SearchIssue(string description)
         {
             var current = head;
             while (current != null)
@@ -84,7 +79,7 @@ namespace MunicipalReportingApp.DataStructures
             }
         }
 
-        public IEnumerator<ReportedIssue> GetEnumerator()
+        public IEnumerator<Issue> GetEnumerator()
         {
             var current = head;
             while (current != null)
@@ -94,6 +89,6 @@ namespace MunicipalReportingApp.DataStructures
             }
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator(); // Explicit interface implementation
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

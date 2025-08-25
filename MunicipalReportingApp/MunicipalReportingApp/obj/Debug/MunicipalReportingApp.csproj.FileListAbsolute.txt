@@ -10,3 +10,5 @@ C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingAp
 C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\MunicipalReportingApp.pdb
 C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\bin\Debug\MunicipalReportingApp.pdb
 C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\MunicipalReportingApp.exe.config
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\MunicipalReportingApp.csproj.AssemblyReference.cache
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\MunicipalReportingApp.exe.config

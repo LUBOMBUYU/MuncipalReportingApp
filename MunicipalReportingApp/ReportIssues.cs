@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MunicipalReportingApp
@@ -47,12 +48,12 @@ namespace MunicipalReportingApp
             }
 
             // Create a new issue object
-            var newIssue = new ReportedIssue
+            var newIssue = new DataStructures.Issue
             {
                 Location = location,
                 Category = category,
                 Description = description,
-                Attachments = attachments
+                Attachments = new List<string>(attachments)
             };
 
             // Save globally

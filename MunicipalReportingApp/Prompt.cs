@@ -1,5 +1,5 @@
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace MunicipalReportingApp
 {
@@ -10,24 +10,29 @@ namespace MunicipalReportingApp
             Form prompt = new Form()
             {
                 Width = 400,
-                Height = 180,
+                Height = 160,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
                 Text = caption,
-                StartPosition = FormStartPosition.CenterScreen
+                StartPosition = FormStartPosition.CenterScreen,
+                MaximizeBox = false,
+                MinimizeBox = false,
+                AutoScaleMode = AutoScaleMode.Font,
+                ClientSize = new Size(384, 121)
             };
 
-            Label textLabel = new Label() { Left = 20, Top = 20, Text = text, AutoSize = true };
-            TextBox inputBox = new TextBox() { Left = 20, Top = 50, Width = 340 };
+            Label textLabel = new Label() { Left = 12, Top = 12, Text = text, AutoSize = true };
+            TextBox textBox = new TextBox() { Left = 12, Top = 36, Width = 360, Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
+            Button confirmation = new Button() { Text = "OK", Left = 228, Width = 75, Top = 72, DialogResult = DialogResult.OK, Anchor = AnchorStyles.Top | AnchorStyles.Right };
+            Button cancel = new Button() { Text = "Cancel", Left = 309, Width = 75, Top = 72, DialogResult = DialogResult.Cancel, Anchor = AnchorStyles.Top | AnchorStyles.Right };
 
-            Button confirmation = new Button() { Text = "Ok", Left = 280, Width = 80, Top = 90, DialogResult = DialogResult.OK };
-            confirmation.Click += (sender, e) => { prompt.Close(); };
-
-            prompt.Controls.Add(textLabel);
-            prompt.Controls.Add(inputBox);
+            prompt.Controls.Add(textBox);
             prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(cancel);
+            prompt.Controls.Add(textLabel);
             prompt.AcceptButton = confirmation;
+            prompt.CancelButton = cancel;
 
-            return prompt.ShowDialog() == DialogResult.OK ? inputBox.Text : string.Empty;
+            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : string.Empty;
         }
     }
 }

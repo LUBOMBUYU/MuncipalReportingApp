@@ -1,18 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Windows.Forms;
 using MunicipalReportingApp.DataStructures; // Ensure this is at the top of the file
-using MunicipalReportingApp; // Added to reference the Prompt class
 
 namespace MunicipalReportingApp
 {
     public partial class MainMenuForm : Form
     {
-        private IssueLinkedList issuesList; // Declare issuesList
+        private readonly IssueLinkedList issuesList; // Declare and make readonly
 
         public MainMenuForm()
         {
             InitializeComponent();
             issuesList = new IssueLinkedList(); // Initialize issuesList
+
+            // Add a sample issue for demonstration purposes so View/Search can be tested.
+            issuesList.Add(new Issue
+            {
+                Location = "City Hall, 123 Main St",
+                Category = "Pothole",
+                Description = "Large pothole in front of main entrance",
+                Attachments = new List<string> { "pothole_image.jpg" }
+            });
+
             this.StartPosition = FormStartPosition.CenterScreen; // Center the form on the screen
             this.FormBorderStyle = FormBorderStyle.FixedDialog; // Prevent resizing
         }
@@ -23,6 +34,8 @@ namespace MunicipalReportingApp
             this.Hide();
 
             // Open ReportIssues
+            // Pass the list to the ReportIssues form so it can add new issues.
+            // You will need to modify the ReportIssues form to accept this list.
             using (var reportForm = new ReportIssues())
             {
                 reportForm.ShowDialog();
@@ -40,20 +53,22 @@ namespace MunicipalReportingApp
                 return;
             }
 
-            string allIssues = "";
+            var sb = new StringBuilder();
             foreach (var issue in issuesList) // Use issuesList
             {
-                allIssues += $"Location: {issue.Location}\n" +
-                             $"Category: {issue.Category}\n" +
-                             $"Description: {issue.Description}\n" +
-                             $"Attachments: {string.Join(", ", issue.Attachments)}\n\n";
+                sb.AppendLine($"Location: {issue.Location}");
+                sb.AppendLine($"Category: {issue.Category}");
+                sb.AppendLine($"Description: {issue.Description}");
+                sb.AppendLine($"Attachments: {string.Join(", ", issue.Attachments)}");
+                sb.AppendLine();
             }
 
-            MessageBox.Show(allIssues, "All Issues");
+            MessageBox.Show(sb.ToString(), "All Issues");
         }
 
         private void btnSearchIssue_Click(object sender, EventArgs e)
         {
+            // Assuming Prompt is a static class or a class with a static method ShowDialog
             string searchTerm = Prompt.ShowDialog("Enter issue description to search:", "Search Issue");
             if (string.IsNullOrEmpty(searchTerm))
             {
