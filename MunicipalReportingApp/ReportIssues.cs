@@ -6,10 +6,13 @@ namespace MunicipalReportingApp
 {
     public partial class ReportIssues : Form
     {
-        public ReportIssues()
+        private readonly DataStructures.IssueLinkedList _issuesList;
+
+        public ReportIssues(DataStructures.IssueLinkedList issuesList)
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen; // Center the form on the screen
+            _issuesList = issuesList;
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog; // Prevent resizing
         }
 
@@ -56,8 +59,8 @@ namespace MunicipalReportingApp
                 Attachments = new List<string>(attachments)
             };
 
-            // Save globally
-            IssueStorage.Issues.Add(newIssue);
+            // Add to the list passed from the main menu
+            _issuesList.Add(newIssue);
 
             MessageBox.Show("Issue submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -72,27 +75,6 @@ namespace MunicipalReportingApp
         private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        // Optional: View all issues
-        private void BtnViewIssues_Click(object sender, EventArgs e)
-        {
-            if (IssueStorage.Issues.Count == 0)
-            {
-                MessageBox.Show("No issues submitted yet.");
-                return;
-            }
-
-            string allIssues = "";
-            foreach (var issue in IssueStorage.Issues)
-            {
-                allIssues += $"Location: {issue.Location}\n" +
-                             $"Category: {issue.Category}\n" +
-                             $"Description: {issue.Description}\n" +
-                             $"Attachments: {string.Join(", ", issue.Attachments)}\n\n";
-            }
-
-            MessageBox.Show(allIssues, "All Issues");
         }
     }
 }
