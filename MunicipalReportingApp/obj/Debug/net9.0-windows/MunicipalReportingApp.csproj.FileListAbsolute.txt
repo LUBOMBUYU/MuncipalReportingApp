@@ -1,0 +1,15 @@
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\bin\Debug\net9.0-windows\MunicipalReportingApp.exe
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\bin\Debug\net9.0-windows\MunicipalReportingApp.deps.json
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\bin\Debug\net9.0-windows\MunicipalReportingApp.runtimeconfig.json
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\bin\Debug\net9.0-windows\MunicipalReportingApp.dll
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\bin\Debug\net9.0-windows\MunicipalReportingApp.pdb
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.AssemblyInfoInputs.cache
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.AssemblyInfo.cs
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.csproj.CoreCompileInputs.cache
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.sourcelink.json
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.dll
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\refint\MunicipalReportingApp.dll
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.pdb
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.genruntimeconfig.cache
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\ref\MunicipalReportingApp.dll

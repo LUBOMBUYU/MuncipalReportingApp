@@ -1,10 +1,9 @@
-﻿namespace MunicipalReportingApp
+namespace MunicipalReportingApp
 {
     partial class ReportIssues
     {
         private System.ComponentModel.IContainer components = null;
 
-        // Controls
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.TextBox txtLocation;
@@ -76,7 +75,7 @@
             btnAttachMedia.BackColor = System.Drawing.Color.DodgerBlue;
             btnAttachMedia.ForeColor = System.Drawing.Color.White;
             btnAttachMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnAttachMedia.Click += BtnAttachMedia_Click;
+            btnAttachMedia.Click += new System.EventHandler(this.BtnAttachMedia_Click);
             this.Controls.Add(lblAttachments);
             this.Controls.Add(btnAttachMedia);
 
@@ -85,7 +84,7 @@
             btnSubmit.BackColor = System.Drawing.Color.DodgerBlue;
             btnSubmit.ForeColor = System.Drawing.Color.White;
             btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnSubmit.Click += BtnSubmit_Click;
+            btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             this.Controls.Add(btnSubmit);
 
             // Back
@@ -93,10 +92,18 @@
             btnBack.BackColor = System.Drawing.Color.Gray;
             btnBack.ForeColor = System.Drawing.Color.White;
             btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnBack.Click += BtnBack_Click;
+            btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             this.Controls.Add(btnBack);
 
-            this.Load += new System.EventHandler(this.ReportIssues_Load);
+            // Logo
+            var logoPictureBox = new System.Windows.Forms.PictureBox
+            {
+                Image = Image.FromFile("images/muncipality app.png"), // Reference the logo from the specified path
+                SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage,
+                Location = new System.Drawing.Point(10, this.ClientSize.Height - 100), // Adjust as needed
+                Size = new System.Drawing.Size(100, 100) // Adjust size as needed
+            };
+            this.Controls.Add(logoPictureBox);
         }
     }
 }
