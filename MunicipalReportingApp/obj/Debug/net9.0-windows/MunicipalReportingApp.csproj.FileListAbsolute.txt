@@ -13,3 +13,4 @@ C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingAp
 C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.pdb
 C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\MunicipalReportingApp.genruntimeconfig.cache
 C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\obj\Debug\net9.0-windows\ref\MunicipalReportingApp.dll
+C:\Users\lab_services_student\Desktop\MunicipalReportingApp\MunicipalReportingApp\bin\Debug\net9.0-windows\MunicipalReportingApp.dll.config

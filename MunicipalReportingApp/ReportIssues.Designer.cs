@@ -15,6 +15,11 @@ namespace MunicipalReportingApp
         private System.Windows.Forms.Button btnAttachMedia;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnSelectOnMap;
+        private System.Windows.Forms.Panel footerPanel;
+        private System.Windows.Forms.PictureBox logoPictureBox;
+        private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.Label lblCopyright;
 
         protected override void Dispose(bool disposing)
         {
@@ -27,83 +32,248 @@ namespace MunicipalReportingApp
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-
-            // Form properties
-            this.Text = "Report an Issue";
-            this.ClientSize = new System.Drawing.Size(600, 600);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.BackColor = System.Drawing.Color.LightBlue;
-
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblLocation = new System.Windows.Forms.Label();
+            this.txtLocation = new System.Windows.Forms.TextBox();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.rtbDescription = new System.Windows.Forms.RichTextBox();
+            this.lblAttachments = new System.Windows.Forms.Label();
+            this.btnAttachMedia = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnSelectOnMap = new System.Windows.Forms.Button();
+            this.footerPanel = new System.Windows.Forms.Panel();
+            this.logoPictureBox = new System.Windows.Forms.PictureBox();
+            this.lblCompany = new System.Windows.Forms.Label();
+            this.lblCopyright = new System.Windows.Forms.Label();
+            this.footerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
+            this.SuspendLayout();
+            // 
             // Title
-            lblTitle = new System.Windows.Forms.Label()
-            {
-                Text = "Report an Issue",
-                Font = new System.Drawing.Font("Arial", 18, System.Drawing.FontStyle.Bold),
-                Location = new System.Drawing.Point(180, 20),
-                AutoSize = true
-            };
-            this.Controls.Add(lblTitle);
-
+            // 
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
+            this.lblTitle.Size = new System.Drawing.Size(582, 77);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Report an Issue";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Location
-            lblLocation = new System.Windows.Forms.Label() { Text = "Location:", Location = new System.Drawing.Point(50, 80), AutoSize = true };
-            txtLocation = new System.Windows.Forms.TextBox() { Location = new System.Drawing.Point(150, 75), Width = 350 };
-            this.Controls.Add(lblLocation);
-            this.Controls.Add(txtLocation);
-
+            // 
+            this.lblLocation.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblLocation.Location = new System.Drawing.Point(45, 100);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(120, 30);
+            this.lblLocation.TabIndex = 1;
+            this.lblLocation.Text = "Location:";
+            this.lblLocation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtLocation
+            // 
+            this.txtLocation.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtLocation.Location = new System.Drawing.Point(175, 100);
+            this.txtLocation.Name = "txtLocation";
+            this.txtLocation.Size = new System.Drawing.Size(215, 30);
+            this.txtLocation.TabIndex = 2;
+            // 
+            // btnSelectOnMap
+            // 
+            this.btnSelectOnMap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
+            this.btnSelectOnMap.FlatAppearance.BorderSize = 0;
+            this.btnSelectOnMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectOnMap.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSelectOnMap.ForeColor = System.Drawing.Color.White;
+            this.btnSelectOnMap.Location = new System.Drawing.Point(400, 100);
+            this.btnSelectOnMap.Name = "btnSelectOnMap";
+            this.btnSelectOnMap.Size = new System.Drawing.Size(125, 30);
+            this.btnSelectOnMap.TabIndex = 3;
+            this.btnSelectOnMap.Text = "Select on Map";
+            this.btnSelectOnMap.UseVisualStyleBackColor = false;
+            this.btnSelectOnMap.Click += new System.EventHandler(this.btnSelectOnMap_Click);
+            // 
             // Category
-            lblCategory = new System.Windows.Forms.Label() { Text = "Category:", Location = new System.Drawing.Point(50, 130), AutoSize = true };
-            cboCategory = new System.Windows.Forms.ComboBox()
-            {
-                Location = new System.Drawing.Point(150, 125),
-                Width = 350,
-                DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-            };
-            cboCategory.Items.AddRange(new string[] { "Road Maintenance", "Water Supply", "Electricity", "Waste Management", "Other" });
-            this.Controls.Add(lblCategory);
-            this.Controls.Add(cboCategory);
-
+            // 
+            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblCategory.Location = new System.Drawing.Point(45, 150);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(120, 30);
+            this.lblCategory.TabIndex = 4;
+            this.lblCategory.Text = "Category:";
+            this.lblCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cboCategory
+            // 
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Items.AddRange(new object[] {
+            "Road Maintenance",
+            "Water Supply",
+            "Electricity",
+            "Waste Management",
+            "Other"});
+            this.cboCategory.Location = new System.Drawing.Point(175, 150);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(350, 31);
+            this.cboCategory.TabIndex = 5;
+            // 
             // Description
-            lblDescription = new System.Windows.Forms.Label() { Text = "Description:", Location = new System.Drawing.Point(50, 180), AutoSize = true };
-            rtbDescription = new System.Windows.Forms.RichTextBox() { Location = new System.Drawing.Point(150, 175), Width = 350, Height = 150 };
-            this.Controls.Add(lblDescription);
-            this.Controls.Add(rtbDescription);
-
+            // 
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblDescription.Location = new System.Drawing.Point(45, 200);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(120, 30);
+            this.lblDescription.TabIndex = 6;
+            this.lblDescription.Text = "Description:";
+            this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // rtbDescription
+            // 
+            this.rtbDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.rtbDescription.Location = new System.Drawing.Point(175, 200);
+            this.rtbDescription.Name = "rtbDescription";
+            this.rtbDescription.Size = new System.Drawing.Size(350, 150);
+            this.rtbDescription.TabIndex = 7;
+            this.rtbDescription.Text = "";
+            // 
             // Attachments
-            lblAttachments = new System.Windows.Forms.Label() { Text = "No attachments", Location = new System.Drawing.Point(150, 340), AutoSize = true };
-            btnAttachMedia = new System.Windows.Forms.Button() { Text = "Attach Media", Location = new System.Drawing.Point(50, 335), Width = 80 };
-            btnAttachMedia.BackColor = System.Drawing.Color.DodgerBlue;
-            btnAttachMedia.ForeColor = System.Drawing.Color.White;
-            btnAttachMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnAttachMedia.Click += new System.EventHandler(this.BtnAttachMedia_Click);
-            this.Controls.Add(lblAttachments);
-            this.Controls.Add(btnAttachMedia);
-
+            // 
+            this.lblAttachments.ForeColor = System.Drawing.Color.Gray;
+            this.lblAttachments.Location = new System.Drawing.Point(335, 370);
+            this.lblAttachments.Name = "lblAttachments";
+            this.lblAttachments.Size = new System.Drawing.Size(190, 40);
+            this.lblAttachments.TabIndex = 9;
+            this.lblAttachments.Text = "No file chosen...";
+            this.lblAttachments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnAttachMedia
+            // 
+            this.btnAttachMedia.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAttachMedia.FlatAppearance.BorderSize = 0;
+            this.btnAttachMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAttachMedia.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAttachMedia.ForeColor = System.Drawing.Color.White;
+            this.btnAttachMedia.Location = new System.Drawing.Point(175, 370);
+            this.btnAttachMedia.Name = "btnAttachMedia";
+            this.btnAttachMedia.Size = new System.Drawing.Size(150, 40);
+            this.btnAttachMedia.TabIndex = 8;
+            this.btnAttachMedia.Text = "Attach Media";
+            this.btnAttachMedia.UseVisualStyleBackColor = false;
+            this.btnAttachMedia.Click += new System.EventHandler(this.BtnAttachMedia_Click);
+            // 
             // Submit
-            btnSubmit = new System.Windows.Forms.Button() { Text = "Submit", Location = new System.Drawing.Point(150, 400), Width = 100 };
-            btnSubmit.BackColor = System.Drawing.Color.DodgerBlue;
-            btnSubmit.ForeColor = System.Drawing.Color.White;
-            btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
-            this.Controls.Add(btnSubmit);
-
+            // 
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnSubmit.FlatAppearance.BorderSize = 0;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.Location = new System.Drawing.Point(175, 430);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(120, 45);
+            this.btnSubmit.TabIndex = 10;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
+            // 
             // Back
-            btnBack = new System.Windows.Forms.Button() { Text = "Back", Location = new System.Drawing.Point(270, 400), Width = 100 };
-            btnBack.BackColor = System.Drawing.Color.Gray;
-            btnBack.ForeColor = System.Drawing.Color.White;
-            btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnBack.Click += new System.EventHandler(this.BtnBack_Click);
-            this.Controls.Add(btnBack);
-
-            // Logo
-            var logoPictureBox = new System.Windows.Forms.PictureBox
-            {
-                Image = Image.FromFile("images/muncipality app.png"), // Reference the logo from the specified path
-                SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage,
-                Location = new System.Drawing.Point(10, this.ClientSize.Height - 100), // Adjust as needed
-                Size = new System.Drawing.Size(100, 100) // Adjust size as needed
-            };
-            this.Controls.Add(logoPictureBox);
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(305, 430);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(120, 45);
+            this.btnBack.TabIndex = 11;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
+            // 
+            // footerPanel
+            // 
+            this.footerPanel.Controls.Add(this.lblCopyright);
+            this.footerPanel.Controls.Add(this.lblCompany);
+            this.footerPanel.Controls.Add(this.logoPictureBox);
+            this.footerPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.footerPanel.Location = new System.Drawing.Point(0, 500);
+            this.footerPanel.Name = "footerPanel";
+            this.footerPanel.Size = new System.Drawing.Size(582, 100);
+            this.footerPanel.TabIndex = 12;
+            // 
+            // logoPictureBox
+            // 
+            // IMPORTANT: Set the Image property in the form's constructor in ReportIssues.cs
+            // to avoid errors if the image file is missing at design time.
+            // Example: this.logoPictureBox.Image = Image.FromFile("images/muncipality app.png");
+            this.logoPictureBox.Location = new System.Drawing.Point(26, 3);
+            this.logoPictureBox.Name = "logoPictureBox";
+            this.logoPictureBox.Size = new System.Drawing.Size(94, 94);
+            this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoPictureBox.TabIndex = 0;
+            this.logoPictureBox.TabStop = false;
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblCompany.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCompany.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblCompany.Location = new System.Drawing.Point(126, 30);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(420, 23);
+            this.lblCompany.TabIndex = 1;
+            this.lblCompany.Text = "Municipal Services Inc.";
+            this.lblCompany.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCopyright
+            // 
+            this.lblCopyright.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblCopyright.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblCopyright.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblCopyright.Location = new System.Drawing.Point(126, 55);
+            this.lblCopyright.Name = "lblCopyright";
+            this.lblCopyright.Size = new System.Drawing.Size(420, 19);
+            this.lblCopyright.TabIndex = 2;
+            this.lblCopyright.Text = "© 2024 Municipal Services Inc. All rights reserved.";
+            this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ReportIssues
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(582, 600);
+            this.Controls.Add(this.footerPanel);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnSelectOnMap);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.lblAttachments);
+            this.Controls.Add(this.btnAttachMedia);
+            this.Controls.Add(this.rtbDescription);
+            this.Controls.Add(this.lblDescription);
+            this.Controls.Add(this.cboCategory);
+            this.Controls.Add(this.lblCategory);
+            this.Controls.Add(this.txtLocation);
+            this.Controls.Add(this.lblLocation);
+            this.Controls.Add(this.lblTitle);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "ReportIssues";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Report an Issue";
+            this.footerPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
     }
 }

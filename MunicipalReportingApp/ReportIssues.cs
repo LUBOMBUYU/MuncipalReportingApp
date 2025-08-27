@@ -7,6 +7,8 @@ namespace MunicipalReportingApp
 {
     public partial class ReportIssues : Form
     {
+        private List<string> _attachments = new List<string>();
+
         public ReportIssues()
         {
             InitializeComponent();
@@ -23,20 +25,22 @@ namespace MunicipalReportingApp
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Handle file attachment logic
+                    // Store the selected file paths
+                    _attachments.AddRange(openFileDialog.FileNames);
+                    lblAttachments.Text = $"{_attachments.Count} file(s) attached";
                 }
             }
         }
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            // Create a new issue
+            // Create a new issue with actual form data
             var newIssue = new Issue
             {
-                Location = "Sample Location",
-                Category = "Sample Category",
-                Description = "Sample Description",
-                Attachments = new List<string>()
+                Location = txtLocation.Text,
+                Category = cboCategory.SelectedItem?.ToString() ?? "Other",
+                Description = rtbDescription.Text,
+                Attachments = new List<string>(_attachments)
             };
 
             // Add to global storage
@@ -49,6 +53,17 @@ namespace MunicipalReportingApp
         private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSelectOnMap_Click(object sender, EventArgs e)
+        {
+            using (var mapForm = new MapSelectorForm())
+            {
+                if (mapForm.ShowDialog() == DialogResult.OK)
+                {
+                    txtLocation.Text = mapForm.SelectedLocation;
+                }
+            }
         }
     }
 }

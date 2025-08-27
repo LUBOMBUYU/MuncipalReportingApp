@@ -14,21 +14,23 @@ namespace MunicipalReportingApp
 
         private void btnReportIssues_Click(object sender, EventArgs e)
         {
-            // Open the ReportIssues form
+            // Hide the main form and open the ReportIssues form
+            this.Hide();
             using (var reportForm = new ReportIssues())
             {
                 reportForm.ShowDialog();
             }
+            this.Show(); // Show the main form again after ReportIssues form is closed
         }
 
         private void btnViewIssues_Click(object sender, EventArgs e)
         {
-            // Logic to view reported issues
+            MessageBox.Show("View Issues feature will be added in later updates", "Feature Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnSearchIssue_Click(object sender, EventArgs e)
         {
-            // Logic to search for an issue
+            MessageBox.Show("Search Issue feature will be added in later updates", "Feature Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

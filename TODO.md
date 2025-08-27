@@ -1,28 +1,23 @@
-# Fix Compilation Errors - Progress Summary
+# TODO - Add Popup Messages for View/Search Issues
 
-## ✅ Resolved Issues:
+## Steps to Complete:
+1. [x] Fix MainMenuForm.Designer.cs - Connect proper event handlers
+2. [x]极 MainMenuForm.cs - Add MessageBox.Show for both buttons
+3. [x] Update MainMenuForm.cs - Hide main form when Report Issues is clicked
+4. [x] Resize Attach Media button to appropriate size (120px)
+5. [x] Implement attachment storage logic in ReportIssues.cs
+6. [x] Restore MainMenuForm.Designer.cs to original state
+7. [x] Add company title and copyright to MainMenuForm
+8. [x] Add company title and copyright to ReportIssues form
+9. [x] Add console output to show stored issues for verification
+10. [ ] Test the application to verify all functionality works
 
-### 1. CS0246: "The type or namespace name 'Issue' could not be found"
-- ✅ Removed duplicate DataStructures.cs file causing namespace conflicts
-- ✅ Created Issue.cs in DataStructures folder with proper structure
-- ✅ Added Issue.cs to project file
-- ✅ Updated all files to use consistent Issue class from MunicipalReportingApp.DataStructures namespace
-
-### 2. CS1729: "'ReportIssues' does not contain a constructor that takes 1 arguments"
-- ✅ Updated MainMenuForm.cs to use default ReportIssues constructor instead of passing issuesList
-- ✅ The ReportIssues form now uses IssueStorage.Issues for global storage
-
-### 3. CS0103: "The name 'Prompt' does not exist in the current context"
-- ✅ Verified Prompt.cs file exists and is accessible
-- ✅ The Prompt class is properly defined and should be accessible
-
-## ⚠️ Remaining Issues:
-
-### Build Configuration Issues:
-- MSBuild configuration errors related to resource generation tasks
-- These are environment/configuration issues, not code syntax errors
-
-## Next Steps:
-1. The original C# compilation errors have been resolved
-2. The remaining build issues are related to MSBuild/Visual Studio configuration
-3. The application logic should now work correctly once the build environment is properly configured
+## Details:
+- View Issues button: Show message "View Issues feature will be added in later updates"
+- Search Issue button: Show message "Search Issue feature will be added极 updates"
+- Report Issues button: Hide main form when clicked, show again when ReportIssues form closes
+- Attach Media button: Resized to 120px width
+- Attachment storage: Files selected via OpenFileDialog are now properly stored with the issue
+- Form data: Now uses actual user input instead of sample data
+- Company branding: Added "Municipal Services Inc." title and copyright to all forms
+- Verification: Console output shows stored issues when application starts
