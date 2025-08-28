@@ -1,5 +1,4 @@
 using System;
-using System.Configuration;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -28,55 +27,24 @@ namespace MunicipalReportingApp
             InitializeComponent();
             InitializeCustomComponents(); // Method to set up our custom controls
             // Allow C# to be called from JavaScript
-            if (webBrowserMap != null)
-            {
-                webBrowserMap.ObjectForScripting = new ScriptManager(this);
-            }
+            // The webBrowserMap control has been removed, so this part is no longer needed.
         }
 
         private void MapSelectorForm_Load(object sender, EventArgs e)
         {
-            // IMPORTANT: You must get your own Google Maps API key.
-            // The key should be stored in your App.config file.
-            string apiKey = ConfigurationManager.AppSettings["GoogleMapsApiKey"];
-            if (string.IsNullOrEmpty(apiKey) || apiKey == "YOUR_API_KEY")
-            {
-                MessageBox.Show("Google Maps API key is not configured. Please add it to App.config.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-                return;
-            }
-            
-            string html = $@"
-            <!DOCTYPE html>
-            <html>
-              <head>
-                <meta http-equiv='X-UA-Compatible' content='IE=Edge' />
-                <title>Click to get Coordinates</title>
-                <style>
-                  #map {{ height: 100%; }}
-                  html, body {{ height: 100%; margin: 0; padding: 0; }}
-                </style>
-              </head>
-              <body>
-                <h3>Click on the map to select a location, then close this window.</h3>
-                <div id='map'></div>
-                <script>
-                  function initMap() {{
-                    const map = new google.maps.Map(document.getElementById('map'), {{
-                      center: {{lat: -34.397, lng: 150.644}}, // Default to Sydney, Australia
-                      zoom: 8
-                    }});
+            // For mobile app, we'll need to implement a different approach
+            // This will be replaced with mobile-specific map implementation
+            // For now, we'll use a simple placeholder
+        }
 
-                    map.addListener('click', (e) => {{
-                      window.external.RecordCoordinates(e.latLng.lat(), e.latLng.lng());
-                    }});
-                  }}
-                </script>
-                <script src='https://maps.googleapis.com/maps/api/js?key={apiKey}&callback=initMap' async defer></script>
-              </body>
-            </html>";
-
-            webBrowserMap.DocumentText = html;
+        private void pictureBoxMap_Click(object sender, EventArgs e)
+        {
+            // Handle map click for location selection
+            var mouseEventArgs = (MouseEventArgs)e;
+            // Simulate coordinates based on click position
+            double lat = -34.397 + (mouseEventArgs.Y / 600.0) * 0.1;
+            double lng = 150.644 + (mouseEventArgs.X / 800.0) * 0.1;
+            SetCoordinates(lat, lng);
         }
 
         public void SetCoordinates(double lat, double lng)
@@ -109,8 +77,7 @@ namespace MunicipalReportingApp
             };
 
             this.Controls.Add(this.btnConfirm);
-            // Ensure the WebBrowser control is behind the button
-            this.webBrowserMap.Dock = DockStyle.Fill;
+            // For mobile app, we'll need to adjust the layout accordingly
             this.btnConfirm.BringToFront();
         }
     }
